@@ -11,7 +11,7 @@
     <title>Rakibul</title>
   </head>
   <body>
-    <h1>Rakib Hack</h1>
+    <h1>Rakibul's Hack</h1>
     <form id="premiumForm">
       <div class="form-group">
         <input id="premium1" class="form-control" placeholder="Premium 1">
@@ -40,10 +40,13 @@
         var product = premium1 * premium2;
 
         // Convert the product to a string and get unique digits
-        var uniqueDigits = Array.from(new Set(product.toString())).join('');
+        var uniqueDigits = Array.from(new Set(product.toString().split('')));
 
-        // Display the unique digits
-        document.querySelector('.result').innerText = 'Unique digits: ' + uniqueDigits;
+        // Calculate the sum of unique digits
+        var sumOfUniqueDigits = uniqueDigits.reduce((acc, digit) => acc + Number(digit), 0);
+
+        // Display the unique digits and their sum
+        document.querySelector('.result').innerText = 'Unique digits: ' + uniqueDigits.join('') + ', Sum: ' + sumOfUniqueDigits;
       });
     </script>
   </body>
