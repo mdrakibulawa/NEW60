@@ -22,7 +22,7 @@
       <button type="submit" class="btn btn-primary">Result</button>
     </form>
 
-    <b class="result"></b>
+    <b class="result" style="display: block; padding: 10px;"></b>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -45,8 +45,16 @@
         // Calculate the sum of unique digits
         var sumOfUniqueDigits = uniqueDigits.reduce((acc, digit) => acc + Number(digit), 0);
 
+        // Determine if the sum is odd or even and set background color
+        var resultElement = document.querySelector('.result');
+        if (sumOfUniqueDigits % 2 === 0) {
+          resultElement.style.backgroundColor = 'green';
+        } else {
+          resultElement.style.backgroundColor = 'red';
+        }
+
         // Display the unique digits and their sum
-        document.querySelector('.result').innerText = 'Unique digits: ' + uniqueDigits.join('') + ', Sum: ' + sumOfUniqueDigits;
+        resultElement.innerText = 'Unique digits: ' + uniqueDigits.join('') + ', Sum: ' + sumOfUniqueDigits;
       });
     </script>
   </body>
